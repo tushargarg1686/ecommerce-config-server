@@ -1,1 +1,20 @@
+jwt:
+  secretKey: dndfkbvjdsfbvjkbdskbvdsbfvjkbdsfjvbdfbvjbdscjvbcdjbvjdbvjsdvuvbddbdjbvjdbvjd
 
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: inventory-service
+              uri: ${INVENTORY_SERVICE_URI:lb://INVENTORY-SERVICE}
+              predicates:
+                - Path=/api/v1/inventory/**
+
+            - id: order-service
+              uri: ${ORDER_SERVICE_URI:lb://ORDER-SERVICE}
+              predicates:
+                - Path=/api/v1/orders/**
+
+          
