@@ -8,6 +8,13 @@ spring:
             - Path=/api/v1/orders/**
           filters:
             - StripPrefix=2
+            - name: LoggingOrdersFilter
+            - name: Authentication
+              args:
+                isEnabled: false
+            - name: Authorization
+              args:
+                allowedRoles: ADMIN,SUPER_ADMIN
 
         - id: inventory-service
           uri: http://inventory-service
@@ -15,3 +22,5 @@ spring:
             - Path=/api/v1/inventory/**
           filters:
             - StripPrefix=2
+            - AddRequestHeader=X-CUSTOM_HEADER, Nupur
+            - name: Authentication
