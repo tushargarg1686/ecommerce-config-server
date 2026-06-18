@@ -2,8 +2,8 @@ server.servlet.context-path=/orders
 server.port=9020
 
 # Database Configuration
-spring.datasource.url=jdbc:postgresql://localhost:5432/inventorydb
-spring.datasource.username=postgres
+spring.datasource.url=jdbc:postgresql://order-db-service:5432/orderdb
+spring.datasource.username=user
 spring.datasource.password=password
 spring.datasource.driver-class-name=org.postgresql.Driver
 
