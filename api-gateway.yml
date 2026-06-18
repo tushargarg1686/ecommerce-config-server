@@ -15,10 +15,7 @@ spring:
             - name: Authentication
               args:
                 isEnabled: false
-            - name: Authorization
-              args:
-                allowedRoles: ADMIN,SUPER_ADMIN
-
+          
         - id: inventory-service
           uri: http://inventory-service
           predicates:
